@@ -17,7 +17,7 @@ public class DBConnection {
 
         driver= "com.mysql.jdbc.Driver";
 
-        url= "jdbc:mysql://localhost/assignment3";
+        url= "jdbc:mysql://localhost/assignment4";
 
         user= "root";
 

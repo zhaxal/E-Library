@@ -6,6 +6,7 @@
 
 
     <ul class="navbar-nav" style="left: 20px">
+        <li ><a href="UserList"> User List</a>
         <li ><a href="BookList"> Book List</a>
         <li ><a href="Profile"> Profile</a>
         <li><a href=""> Hello, <%= session.getAttribute( "name" ) %></a></li>

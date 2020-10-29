@@ -17,7 +17,7 @@
     <nav class="navbar navbar-expand-md navbar-dark"
          style="background-color: blue">
         <div>
-            <a href="" class="navbar-brand"> E-Commerce Application </a>
+            <a href="" class="navbar-brand"> E-Library Application </a>
         </div>
 
         <ul class="navbar-nav">

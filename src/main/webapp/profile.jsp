@@ -13,7 +13,19 @@
 <body>
 
 <header>
-    <jsp:include page="nav-bar-public.jsp" />
+    <%
+        int admin = (Integer) session.getAttribute("isAdmin");
+
+        if (admin == 1){
+    %>
+    <jsp:include page="nav-bar-admin.jsp" />
+    <%
+        }else{
+    %>
+    <jsp:include page="nav-bar.jsp" />
+    <%
+        }
+    %>
 </header>
 <br>
 
@@ -21,7 +33,7 @@
 
 
     <div class="container">
-        <h3 class="text-center">Welcome</h3>
+        <h3 class="text-center">Profile page</h3>
 
 
 
