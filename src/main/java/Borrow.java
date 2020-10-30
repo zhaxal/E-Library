@@ -8,7 +8,7 @@ import java.io.IOException;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 
-@WebServlet(name = "Borrow")
+@WebServlet("/Borrow")
 public class Borrow extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         doGet(request, response);
@@ -31,7 +31,7 @@ public class Borrow extends HttpServlet {
             }
 
             request.setAttribute("resultset",bookList);
-            request.getRequestDispatcher("/borrow.jsp").forward(request, response);
+            request.getRequestDispatcher("/borrow-list.jsp").forward(request, response);
 
 
         } catch (Exception e) {

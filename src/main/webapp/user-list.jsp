@@ -46,22 +46,20 @@
                 <th>Username</th>
                 <th>Name</th>
                 <th>Email</th>
-                <th>Password</th>
                 <th>Actions</th>
             </tr>
             </thead>
             <tbody>
 
-            <c:forEach var="user" items="${resultset}">
+            <c:forEach var="books" items="${resultset}">
 
                 <tr>
-                    <td><c:out value="${user.id}" /></td>
-                    <td><c:out value="${user.username}" /></td>
-                    <td><c:out value="${user.name}" /></td>
-                    <td><c:out value="${user.email}" /></td>
-                    <td><c:out value="${user.password}" /></td>
+                    <td><c:out value="${books.id}" /></td>
+                    <td><c:out value="${books.username}" /></td>
+                    <td><c:out value="${books.name}" /></td>
+                    <td><c:out value="${books.email}" /></td>
                     <td>
-                        <a style="color: black" href="?id=<c:out value='${user.id}' />">Change</a>
+                        <a style="color: black" href="ChangeUser?id=<c:out value='${books.id}' />">Change</a>
                     </td>
                 </tr>
             </c:forEach>

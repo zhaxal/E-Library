@@ -24,6 +24,7 @@ public class User extends HttpServlet {
             ResultSet user_detail = ExecuteQuery.exeQuery("SELECT * FROM user WHERE id='" + id + "'");
             user_detail.first();
 
+
             request.getRequestDispatcher("/profile.jsp").forward(request, response);
         } catch (Exception e) {
             System.out.println("User.java [Error] Exception");

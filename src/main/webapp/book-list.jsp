@@ -42,9 +42,10 @@
         <table class="table table-bordered">
             <thead>
             <tr>
-                <th>ID</th>
+                <th>ISBN</th>
                 <th>Name</th>
                 <th>Author</th>
+                <th>Amount</th>
                 <th>Actions</th>
             </tr>
             </thead>
@@ -55,30 +56,30 @@
                 if (admin == 1){
             %>
 
-            <c:forEach var="user" items="${resultset}">
+            <c:forEach var="books" items="${resultset}">
 
                 <tr>
-                    <td><c:out value="${user.isbn}" /></td>
-                    <td><c:out value="${user.name}" /></td>
-                    <td><c:out value="${user.author}" /></td>
-                    <td><c:out value="${user.amount}" /></td>
+                    <td><c:out value="${books.isbn}" /></td>
+                    <td><c:out value="${books.name}" /></td>
+                    <td><c:out value="${books.author}" /></td>
+                    <td><c:out value="${books.amount}" /></td>
                     <td>
-                        <a style="color: black" href="?id=<c:out value='${user.isbn}' />">Change</a>
+                        <a style="color: black" href="ChangeBook?id=<c:out value='${books.isbn}' />">Change</a>
                     </td>
                 </tr>
             </c:forEach>
             <%
                 }else{
             %>
-            <c:forEach var="user" items="${resultset}">
+            <c:forEach var="books" items="${resultset}">
 
                 <tr>
-                    <td><c:out value="${user.isbn}" /></td>
-                    <td><c:out value="${user.name}" /></td>
-                    <td><c:out value="${user.author}" /></td>
-                    <td><c:out value="${user.amount}" /></td>
+                    <td><c:out value="${books.isbn}" /></td>
+                    <td><c:out value="${books.name}" /></td>
+                    <td><c:out value="${books.author}" /></td>
+                    <td><c:out value="${books.amount}" /></td>
                     <td>
-                        <a style="color: black" href="?id=<c:out value='${user.isbn}' />">Borrow</a>
+                        <a style="color: black" href="AddBorrow?id=<c:out value='${books.isbn}' />">Borrow</a>
                     </td>
                 </tr>
             </c:forEach>

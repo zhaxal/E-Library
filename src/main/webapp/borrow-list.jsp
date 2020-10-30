@@ -42,49 +42,25 @@
         <table class="table table-bordered">
             <thead>
             <tr>
-                <th>ID</th>
+                <th>ISBN</th>
                 <th>Name</th>
                 <th>Author</th>
                 <th>Actions</th>
             </tr>
             </thead>
             <tbody>
-            <%
 
-
-                if (admin == 1){
-            %>
-
-            <c:forEach var="user" items="${resultset}">
+            <c:forEach var="books" items="${resultset}">
 
                 <tr>
-                    <td><c:out value="${user.isbn}" /></td>
-                    <td><c:out value="${user.name}" /></td>
-                    <td><c:out value="${user.author}" /></td>
-                    <td><c:out value="${user.amount}" /></td>
+                    <td><c:out value="${books.isbn}" /></td>
+                    <td><c:out value="${books.name}" /></td>
+                    <td><c:out value="${books.author}" /></td>
                     <td>
-                        <a style="color: black" href="?id=<c:out value='${user.isbn}' />">Remove</a>
+                        <a style="color: black" href="RemoveBorrow?id=<c:out value='${books.isbn}' />">Remove</a>
                     </td>
                 </tr>
             </c:forEach>
-            <%
-            }else{
-            %>
-            <c:forEach var="user" items="${resultset}">
-
-                <tr>
-                    <td><c:out value="${user.isbn}" /></td>
-                    <td><c:out value="${user.name}" /></td>
-                    <td><c:out value="${user.author}" /></td>
-                    <td><c:out value="${user.amount}" /></td>
-                    <td>
-                        <a style="color: black" href="?id=<c:out value='${user.isbn}' />">Remove</a>
-                    </td>
-                </tr>
-            </c:forEach>
-            <%
-                }
-            %>
 
             </tbody>
 

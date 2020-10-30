@@ -26,6 +26,7 @@ public class Login extends HttpServlet {
                 session.setAttribute("id", login_check.getInt(1));
                 session.setAttribute("name", login_check.getString(3));
                 session.setAttribute("login", "true");
+                session.setAttribute("email",login_check.getString(4));
                 session.setAttribute("isAdmin",login_check.getInt(6));
                 response.sendRedirect("User");
             } else {

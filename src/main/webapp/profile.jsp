@@ -34,9 +34,16 @@
 
     <div class="container">
         <h3 class="text-center">Profile page</h3>
-
-
-
+    </div>
+    <div class="container text-left">
+        <h5 class="text-left">Username: <%= session.getAttribute("username") %></h5>
+        <h5 class="text-left">Name: <%= session.getAttribute("name") %></h5>
+        <h5 class="text-left">Email: <%= session.getAttribute("email") %></h5>
+    </div>
+    <br>
+    <br>
+    <div class="container text-left">
+        <a href="Borrow" class="btn btn-success">Borrow List</a>
     </div>
 </div>
 </body>
