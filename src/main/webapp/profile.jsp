@@ -36,15 +36,27 @@
         <h3 class="text-center">Profile page</h3>
     </div>
     <div class="container text-left">
-        <h5 class="text-left">Username: <%= session.getAttribute("username") %></h5>
-        <h5 class="text-left">Name: <%= session.getAttribute("name") %></h5>
-        <h5 class="text-left">Email: <%= session.getAttribute("email") %></h5>
+        <h5 class="text-left">Username: <%= session.getAttribute("username2") %></h5>
+        <h5 class="text-left">Name: <%= session.getAttribute("name2") %></h5>
+        <h5 class="text-left">Email: <%= session.getAttribute("email2") %></h5>
     </div>
     <br>
     <br>
     <div class="container text-left">
-        <a href="Borrow" class="btn btn-success">Borrow List</a>
+        <a href="Borrow?id=<%= session.getAttribute("id_user")%>" class="btn btn-success">Borrow List</a>
     </div>
+    <%
+        if(admin == 1){
+    %>
+    <div class="container text-left">
+        <a href="ChangeUser?id=<%= session.getAttribute("id_user")%>" class="btn btn-success">Change</a>
+    </div>
+    <div class="container text-left">
+        <a href="DeleteUser?id=<%= session.getAttribute("id_user")%>" class="btn btn-success">Delete</a>
+    </div>
+    <%
+        }
+    %>
 </div>
 </body>
 </html>

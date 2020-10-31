@@ -17,7 +17,12 @@ public class Borrow extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try {
             HttpSession session = request.getSession(false);
-            int id = (int) session.getAttribute("id");
+            int id;
+            if(request.getParameter("id")!= null){
+                id = Integer.parseInt(request.getParameter("id"));
+            }else{
+                id = (int) session.getAttribute("id");
+            }
 
             ResultSet bookSet = ExecuteQuery.exeQuery("select * from borrow where user_id="+id);
 

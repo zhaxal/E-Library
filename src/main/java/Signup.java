@@ -32,7 +32,7 @@ public class Signup extends HttpServlet {
                 request.setAttribute("error_msg", "Username already exists");
                 doGet(request, response);
             } else {
-                String s = "insert into user(`id`, `username`, `name`, `email`, `password_hash`) values(NULL,'" + username + "','" + name + "','" + email + "','" + password + "')";
+                String s = "insert into user(`id`, `username`, `name`, `email`, `password_hash`, `isAdmin`) values(NULL,'" + username + "','" + name + "','" + email + "','" + password + "','"+0+"')";
                 out.print(s);
                 int i = UpdateQuery.updQuery(s);
                 if (i > 0) {

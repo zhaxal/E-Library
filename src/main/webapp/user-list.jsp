@@ -59,7 +59,7 @@
                     <td><c:out value="${books.name}" /></td>
                     <td><c:out value="${books.email}" /></td>
                     <td>
-                        <a style="color: black" href="ChangeUser?id=<c:out value='${books.id}' />">Change</a>
+                        <a style="color: black" href="User?id=<c:out value='${books.id}' />">Profile</a>
                     </td>
                 </tr>
             </c:forEach>

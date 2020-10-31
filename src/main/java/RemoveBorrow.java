@@ -16,9 +16,15 @@ public class RemoveBorrow extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try {
             HttpSession session = request.getSession();
-
+            int user_id;
             int isbn = Integer.parseInt(request.getParameter("id"));
-            int user_id = (int) session.getAttribute("id");
+            if(session.getAttribute("id_user" )!= null){
+                user_id = (int) session.getAttribute("id_user");
+            }else{
+                user_id = (int) session.getAttribute("id");
+            }
+
+
             ResultSet set = ExecuteQuery.exeQuery("select * from books where isbn="+isbn);
             int amount = 0;
             while(set.next()){
@@ -27,6 +33,7 @@ public class RemoveBorrow extends HttpServlet {
             amount = amount + 1;
             UpdateQuery.updQuery("update books set amount='"+amount+"' where isbn="+isbn);
             UpdateQuery.updQuery("delete from borrow where isbn='"+isbn+"' and user_id="+user_id);
+
             response.sendRedirect("Borrow");
 
 

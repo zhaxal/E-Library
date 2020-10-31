@@ -16,13 +16,23 @@ public class User extends HttpServlet {
 
 
         HttpSession session = request.getSession(false);
-        int id = (int) session.getAttribute("id");
+        int id;
+        System.out.println(request.getParameter("id")+" user_id");
+        if(request.getParameter("id")!= null){
+            id = Integer.parseInt(request.getParameter("id"));
+        }else{
+            id = (int) session.getAttribute("id");
+        }
+            session.setAttribute("id_user",id);
 
-        System.out.println(id);
         try {
 
             ResultSet user_detail = ExecuteQuery.exeQuery("SELECT * FROM user WHERE id='" + id + "'");
-            user_detail.first();
+            while (user_detail.next()) {
+                session.setAttribute("username2", user_detail.getString(2));
+                session.setAttribute("name2", user_detail.getString(3));
+                session.setAttribute("email2", user_detail.getString(4));
+            }
 
 
             request.getRequestDispatcher("/profile.jsp").forward(request, response);
